@@ -1,0 +1,393 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 100% 99%;
+    --foreground: 222 64% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 64% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 64% 18%;
+
+    --primary: 221 72% 34%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 221 68% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 222 42% 95%;
+    --muted-foreground: 222 26% 45%;
+
+    --accent: 222 70% 92%;
+    --accent-foreground: 221 72% 34%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 32% 90%;
+    --input: 222 32% 90%;
+    --ring: 221 72% 34%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --hero-gradient-start: 221 72% 34%;
+    --hero-gradient-end: 221 62% 26%;
+    --impact-bg: 222 55% 97%;
+    --card-hover: 221 60% 44%;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 222 58% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 221 72% 34%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 221 55% 24%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 221 40% 28%;
+    --sidebar-ring: 221 72% 34%;
+  }
+
+  .dark {
+    --background: 222 46% 9%;
+    --foreground: 0 0% 96%;
+
+    --card: 222 38% 13%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 222 38% 13%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 221 72% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 221 60% 48%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 222 35% 20%;
+    --muted-foreground: 222 20% 70%;
+
+    --accent: 222 52% 24%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 32% 26%;
+    --input: 222 32% 26%;
+    --ring: 221 72% 45%;
+
+    --hero-gradient-start: 221 60% 35%;
+    --hero-gradient-end: 221 52% 24%;
+    --impact-bg: 222 32% 16%;
+    --card-hover: 221 60% 44%;
+    --sidebar-background: 222 58% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 221 72% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 221 52% 24%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 221 45% 25%;
+    --sidebar-ring: 221 72% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Hide scrollbar for horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Accessibility Styles */
+
+/* Accessibility variables */
+html {
+  --accessibility-font-family: inherit;
+  --accessibility-text-align: inherit;
+  --accessibility-line-height: 100;
+  --accessibility-letter-spacing: 0em;
+  --accessibility-text-contrast: 100%;
+  --accessibility-page-contrast: 100%;
+  --accessibility-color-intensity: 100%;
+}
+
+/* Apply font family only when changed */
+body.accessibility-font-active {
+  font-family: var(--accessibility-font-family);
+}
+
+body.accessibility-font-active * {
+  font-family: inherit;
+}
+
+/* Apply text align only when changed */
+body.accessibility-align-active p,
+body.accessibility-align-active h1,
+body.accessibility-align-active h2,
+body.accessibility-align-active h3,
+body.accessibility-align-active h4,
+body.accessibility-align-active h5,
+body.accessibility-align-active h6,
+body.accessibility-align-active li {
+  text-align: var(--accessibility-text-align);
+}
+
+/* Apply line height only when changed */
+body.accessibility-lineheight-active p,
+body.accessibility-lineheight-active h1,
+body.accessibility-lineheight-active h2,
+body.accessibility-lineheight-active h3,
+body.accessibility-lineheight-active h4,
+body.accessibility-lineheight-active h5,
+body.accessibility-lineheight-active h6,
+body.accessibility-lineheight-active li {
+  line-height: calc(var(--accessibility-line-height) / 100);
+}
+
+/* Apply letter spacing only when changed */
+body.accessibility-letterspacing-active p,
+body.accessibility-letterspacing-active h1,
+body.accessibility-letterspacing-active h2,
+body.accessibility-letterspacing-active h3,
+body.accessibility-letterspacing-active h4,
+body.accessibility-letterspacing-active h5,
+body.accessibility-letterspacing-active h6 {
+  letter-spacing: var(--accessibility-letter-spacing);
+}
+
+/* Page level filters - only apply when values differ from defaults */
+html.accessibility-filters-active {
+  filter: contrast(var(--accessibility-page-contrast)) saturate(var(--accessibility-color-intensity));
+}
+
+/* Hide images */
+.accessibility-hide-images img {
+  display: none !important;
+}
+
+.accessibility-hide-images picture,
+.accessibility-hide-images picture * {
+  display: none !important;
+}
+
+.accessibility-hide-images video,
+.accessibility-hide-images iframe[allow*="camera"],
+.accessibility-hide-images iframe[allow*="picture-in-picture"] {
+  display: none !important;
+}
+
+.accessibility-hide-images [style*="url("] {
+  background-image: none !important;
+  background: none !important;
+  background-color: hsl(var(--background, 0 0% 100%)) !important;
+  color: inherit !important;
+}
+
+.accessibility-hide-images [data-background-image],
+.accessibility-hide-images [data-bg-image] {
+  background-image: none !important;
+  background: none !important;
+  background-color: hsl(var(--background, 0 0% 100%)) !important;
+}
+
+/* Color schemes */
+.accessibility-dark {
+  --background: 222 46% 9%;
+  --foreground: 0 0% 96%;
+
+  --card: 222 38% 13%;
+  --card-foreground: 0 0% 96%;
+
+  --popover: 222 38% 13%;
+  --popover-foreground: 0 0% 96%;
+
+  --primary: 221 72% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 221 60% 48%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 222 35% 20%;
+  --muted-foreground: 222 20% 70%;
+
+  --accent: 222 52% 24%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 62% 40%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 222 32% 26%;
+  --input: 222 32% 26%;
+  --ring: 221 72% 45%;
+}
+
+.accessibility-sepia {
+  --background: 40 36% 95%;
+  --foreground: 30 44% 24%;
+
+  --card: 40 30% 92%;
+  --card-foreground: 30 44% 24%;
+
+  --popover: 40 30% 92%;
+  --popover-foreground: 30 44% 24%;
+
+  --primary: 32 60% 38%;
+  --primary-foreground: 27 45% 96%;
+
+  --secondary: 36 42% 60%;
+  --secondary-foreground: 30 44% 24%;
+
+  --muted: 40 28% 85%;
+  --muted-foreground: 30 24% 40%;
+
+  --accent: 32 54% 70%;
+  --accent-foreground: 30 44% 24%;
+
+  --destructive: 0 65% 45%;
+  --destructive-foreground: 27 45% 96%;
+
+  --border: 35 28% 75%;
+  --input: 35 28% 75%;
+  --ring: 32 60% 38%;
+}
+
+.accessibility-high-contrast-scheme {
+  --background: 0 0% 0%;
+  --foreground: 60 100% 50%;
+
+  --card: 0 0% 0%;
+  --card-foreground: 60 100% 50%;
+
+  --popover: 0 0% 0%;
+  --popover-foreground: 60 100% 50%;
+
+  --primary: 60 100% 50%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 60 100% 50%;
+
+  --muted: 0 0% 12%;
+  --muted-foreground: 60 100% 50%;
+
+  --accent: 60 100% 50%;
+  --accent-foreground: 0 0% 0%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 0%;
+
+  --border: 60 100% 50%;
+  --input: 60 100% 50%;
+  --ring: 60 100% 50%;
+}
+
+/* Show structure */
+.accessibility-show-structure * {
+  outline: 2px dashed rgba(62, 64, 149, 0.5) !important;
+  outline-offset: 2px !important;
+}
+
+.accessibility-show-structure h1,
+.accessibility-show-structure h2,
+.accessibility-show-structure h3 {
+  outline-color: rgba(62, 64, 149, 1) !important;
+  outline-width: 3px !important;
+}
+
+/* Stop animations */
+.accessibility-stop-animations *,
+.accessibility-stop-animations *::before,
+.accessibility-stop-animations *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Highlight elements */
+.accessibility-highlight-elements a,
+.accessibility-highlight-elements button,
+.accessibility-highlight-elements input,
+.accessibility-highlight-elements select,
+.accessibility-highlight-elements textarea {
+  outline: 3px solid hsl(var(--primary)) !important;
+  outline-offset: 2px !important;
+}
+
+/* Legacy - Bold text */
+.accessibility-bold * {
+  font-weight: 700 !important;
+}
+
+/* Legacy - High contrast */
+.accessibility-high-contrast {
+  --background: 0 0% 0%;
+  --foreground: 60 100% 50%;
+  --card: 0 0% 0%;
+  --card-foreground: 60 100% 50%;
+  --popover: 0 0% 0%;
+  --popover-foreground: 60 100% 50%;
+  --primary: 60 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 60 100% 50%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 60 100% 50%;
+  --accent: 60 100% 50%;
+  --accent-foreground: 0 0% 0%;
+  --border: 60 100% 50%;
+  --input: 60 100% 50%;
+  --ring: 60 100% 50%;
+}
+
+/* Legacy - Reduce motion */
+.accessibility-reduce-motion *,
+.accessibility-reduce-motion *::before,
+.accessibility-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Legacy - Easy reading */
+.accessibility-easy-reading {
+  font-family: Arial, sans-serif !important;
+}
+
+.accessibility-easy-reading * {
+  text-decoration: none !important;
+  text-shadow: none !important;
+  font-style: normal !important;
+}
+
+.accessibility-easy-reading img,
+.accessibility-easy-reading video,
+.accessibility-easy-reading [style*="background-image"] {
+  filter: grayscale(100%) !important;
+  opacity: 0.6 !important;
+}
+
+/* VLibras widget */
+div[vw] {
+  z-index: 9999 !important;
+}
