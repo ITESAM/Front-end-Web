@@ -257,7 +257,7 @@ const Header = () => {
                   className="h-16 w-auto object-contain md:h-14"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="hidden sm:flex flex-col">
                 <span
                   className="text-lg font-semibold tracking-wide sm:text-xl lg:text-2xl"
                   style={{ color: "#2E338C" }}
