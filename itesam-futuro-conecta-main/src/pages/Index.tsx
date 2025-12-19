@@ -13,6 +13,8 @@ import {
   MessageCircle,
   Activity,
   Brain,
+  Baby,
+  User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -62,7 +64,7 @@ const Index = () => {
   // 🔥 2. Ordenar por data (mais recente primeiro)
   const sortedNews = useMemo(() => {
     return [...news].sort((a, b) => {
-      return new Date(b.createdAt) - new Date(a.createdAt);
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
     });
   }, [news]);
 
@@ -148,6 +150,12 @@ const Index = () => {
       icon: Handshake,
     },
   ];
+
+  const audiences = [
+    { title: "Crianças PCDs e com TEA", icon: Baby },
+    { title: "Mulheres e mães", icon: Heart },
+    { title: "Idosos 60+", icon: User },
+  ];
  
   const publishedNews = useMemo(() => getPublishedNews(), []);
   return (
@@ -231,14 +239,38 @@ const Index = () => {
         {/* Services Section */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-14 space-y-5">
+            <div className="text-center mb-14 space-y-6">
               <span className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-primary">
                 Equipe multiprofissional
               </span>
-              <h2 className="text-4xl font-bold text-foreground">O que fazemos</h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Oferecemos uma gama completa de serviços voltados para o bem-estar e desenvolvimento integral de indivíduos e famílias.
-              </p>
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold text-foreground">Quem atendemos</h3>
+                <ul className="grid gap-6 sm:grid-cols-3 max-w-6xl mx-auto">
+                  {audiences.map((audience) => {
+                    const Icon = audience.icon;
+                    return (
+                      <li
+                        key={audience.title}
+                        className="group relative overflow-hidden rounded-3xl border border-border bg-card p-10 sm:p-12 text-center text-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl min-h-[190px]"
+                      >
+                        <span className="pointer-events-none absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-primary via-secondary to-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                        <div className="flex flex-col items-center gap-5">
+                          <span className="flex h-14 w-14 items-center justify-center rounded-3xl bg-primary/10 text-primary">
+                            <Icon className="h-7 w-7" />
+                          </span>
+                          <span className="text-lg font-semibold leading-tight">{audience.title}</span>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+              <div className="space-y-3">
+                <h2 className="text-4xl font-bold text-foreground">O que fazemos</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  Oferecemos uma gama completa de serviços voltados para o bem-estar e desenvolvimento integral de indivíduos e famílias.
+                </p>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {services.map((service, index) => (

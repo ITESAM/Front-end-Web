@@ -39,42 +39,45 @@ const Footer = () => {
             <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
               Promovemos acesso a cuidados e oportunidades que fortalecem famílias e comunidades em toda a Amazônia.
             </p>
-            <div className="flex space-x-4">
+            <div className="footer-social-card">
               <a
                 href="https://www.facebook.com/profile.php?id=61581223787205"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="footer-social-container footer-container-facebook"
                 aria-label="Facebook"
               >
-                <Facebook size={20} />
+                <Facebook size={18} className="footer-social-svg" />
               </a>
+
               <a
                 href="https://www.instagram.com/instituto_itesam?igsh=amh0ZHVveXA1bG04&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="footer-social-container footer-container-instagram"
                 aria-label="Instagram"
               >
-                <Instagram size={20} />
+                <Instagram size={18} className="footer-social-svg" />
               </a>
+
               <a
                 href="https://www.tiktok.com/@instituto_itesam?_t=ZM-90MJQmzhrVz&_r=1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="footer-social-container footer-container-tiktok"
                 aria-label="TikTok"
               >
-                <TikTokIcon className="h-5 w-5" />
+                <TikTokIcon className="footer-social-svg" />
               </a>
+
               <a
                 href="https://wa.me/559292729631"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="footer-social-container footer-container-whatsapp"
                 aria-label="WhatsApp"
               >
-                <WhatsAppIcon className="h-5 w-5" />
+                <WhatsAppIcon className="footer-social-svg" />
               </a>
             </div>
           </div>

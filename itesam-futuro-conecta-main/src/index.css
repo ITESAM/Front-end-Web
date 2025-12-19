@@ -387,6 +387,95 @@ html.accessibility-filters-active {
   opacity: 0.6 !important;
 }
 
+@layer components {
+  .footer-social-card {
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 22px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-social-container {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: hsl(var(--sidebar-background, 222 58% 15%));
+    color: hsl(var(--primary-foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid hsl(var(--border));
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .footer-social-container:focus-visible {
+    outline: 3px solid hsl(var(--ring));
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px hsl(var(--primary) / 0.2);
+  }
+
+  .footer-container-facebook:hover {
+    background-color: hsl(211 89% 53%);
+  }
+
+  .footer-container-instagram:hover {
+    background-color: hsl(334 67% 51%);
+  }
+
+  .footer-container-tiktok:hover {
+    background-color: hsl(0 0% 0%);
+  }
+
+  .footer-container-whatsapp:hover {
+    background-color: hsl(173 77% 31%);
+  }
+
+  .footer-social-container:active {
+    transform: scale(0.9);
+  }
+
+  .footer-social-svg {
+    width: 18px;
+    height: 18px;
+    color: hsl(var(--primary-foreground));
+  }
+
+  .footer-social-container:hover .footer-social-svg {
+    animation: footer-slide-in-top 0.3s both;
+  }
+
+  html.accessibility-high-contrast .footer-social-container,
+  html.accessibility-high-contrast-scheme .footer-social-container {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+    border-color: hsl(var(--foreground));
+  }
+
+  html.accessibility-high-contrast .footer-social-container:hover,
+  html.accessibility-high-contrast-scheme .footer-social-container:hover {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@keyframes footer-slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 /* VLibras widget */
 div[vw] {
   z-index: 9999 !important;
