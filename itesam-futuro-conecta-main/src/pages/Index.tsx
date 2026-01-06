@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Users,
   Heart,
-  Award,
   HelpingHand,
   Handshake,
   ShieldCheck,
@@ -121,7 +120,6 @@ const Index = () => {
   const stats = [
     { icon: Users, value: "500+", label: "Famílias Atendidas" },
     { icon: Heart, value: "20+", label: "Projetos Realizados" },
-    { icon: Award, value: "15+", label: "Anos de Experiência" },
   ];
 
   const heroHighlights = [
@@ -205,19 +203,6 @@ const Index = () => {
                     <Link to="/login?tab=register">Cadastra-se</Link>
                   </Button>
                 </div>
-                <div className="flex flex-col items-center gap-3 md:items-start">
-                  <span className="text-sm uppercase tracking-[0.4em] text-white/70">Junte-se à causa</span>
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    asChild
-                    className="uppercase tracking-wide font-semibold shadow-xl shadow-primary/30 hover:shadow-2xl"
-                  >
-                    <Link to="/voluntariado">
-                      Seja voluntário <HelpingHand className="ml-2" />
-                    </Link>
-                  </Button>
-                </div>
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 {heroHighlights.map((highlight) => (
@@ -293,7 +278,7 @@ const Index = () => {
                 Resultados construídos com transparência, dedicação e uma rede comprometida em ampliar o acesso a cuidados integrais.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 return (

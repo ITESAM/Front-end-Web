@@ -43,7 +43,6 @@ const Header = () => {
     { name: "Notícias", path: "/noticias" },
     { name: "Contato", path: "/contato" },
     { name: "Mapa do Site", path: "/mapa-do-site" },
-    { name: "Seja Voluntário", path: "/voluntariado" },
   ];
 
   const { user, logout, isAdmin } = useAuth();
@@ -290,14 +289,6 @@ const Header = () => {
                   <Search className="h-4 w-4" />
                 </button>
               </div>
-              <Button
-                variant="hero"
-                size="sm"
-                className="hidden lg:inline-flex shadow-lg shadow-primary/20"
-                asChild
-              >
-                <Link to="/voluntariado">Quero ser voluntário</Link>
-              </Button>
               {user && (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -475,9 +466,6 @@ const Header = () => {
                     <Link to="/login">Login</Link>
                   </Button>
                 )}
-                <Button variant="hero" size="sm" className="w-full" asChild>
-                  <Link to="/voluntariado">Quero ser voluntário</Link>
-                </Button>
               </div>
             </nav>
           </div>
